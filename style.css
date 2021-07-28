@@ -1,0 +1,19 @@
+
+@font-face {
+	font-family: Pixel;
+	src: url("assets/04B_30__.TTF");
+}
+
+body, #canvas {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+}
+
+#canvas {
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: black;
+}
