@@ -217,7 +217,6 @@ class Game {
 				Game.player.texture = new Texture(TextureManager.textures.eel_gameover);
 				
 				if (!("highscore" in SaveManager.data) || Game.getScore() > SaveManager.data.highscore) {
-					console.log("DEBUG >> score is greater than highscore");
 					SaveManager.data.highscore = Game.getScore();
 					SaveManager.saveData();
 				}
