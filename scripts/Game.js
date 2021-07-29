@@ -64,20 +64,10 @@ class Game {
 			if (Game.decoSpawnTimer <= 0) {
 				var deco = Math.random();
 
-				if (deco < 0.25) {
-					var object = new ScrollingObject(new Texture(TextureManager.textures.bubble));
-					object.velocity = new Vector(Game.rng(-100, 100), -Game.rng(100, 300));
-					var screenWidth = window.innerWidth / pixelSize;
-					var screenHeight = window.innerHeight / pixelSize;
-					object.position.x = Math.random() * screenWidth - (screenWidth/2);
-					object.position.y = (screenHeight / 2) + 100;
-				}
-				else {
-					var object = new ScrollingObject(new Texture(TextureManager.textures.seaweed));
-					object.offset = new Vector(-0.5, -1);
-					var screenHeight = window.innerHeight / pixelSize;
-					object.position.y = (screenHeight/2) + Game.rng(0, 100);
-				}
+				if (deco < 0.25)
+					new Bubble();
+				else
+					new Seaweed();
 				
 				var minSpawnTimer = 0.5, maxSpawnTimer = 3;
 				
@@ -161,6 +151,7 @@ class Game {
 	
 				Game.ctx.translate(hCenter + o.position.x * pixelSize, vCenter + o.position.y * pixelSize);
 				Game.ctx.rotate(o.rotation);
+				Game.ctx.scale(o.scale, o.scale);
 
 				Game.ctx.drawImage(o.texture.image, imageX, imageY, imageWidth, imageHeight);
 
@@ -224,8 +215,9 @@ class Game {
 			case Game.States.GAMEOVER:
 
 				Game.player.texture = new Texture(TextureManager.textures.eel_gameover);
-			
-				if (!"highscore" in SaveManager.data || Game.getScore() > SaveManager.data.highscore) {
+				
+				if (!("highscore" in SaveManager.data) || Game.getScore() > SaveManager.data.highscore) {
+					console.log("DEBUG >> score is greater than highscore");
 					SaveManager.data.highscore = Game.getScore();
 					SaveManager.saveData();
 				}

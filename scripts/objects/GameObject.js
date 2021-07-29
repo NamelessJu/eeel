@@ -2,7 +2,8 @@ class GameObject {
 	position = new Vector();
 	offset = new Vector();
 	rotation = 0;
-	hitbox = new Hitbox();
+	scale = 1;
+	hitbox = null;
 	texture;
 	zIndex;
 	
