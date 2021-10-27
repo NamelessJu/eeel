@@ -12,7 +12,12 @@ class TextureManager {
 		seaweed: "seaweed.png",
 		bubble: "bubble.png",
 
-		background: "background.png"
+		background: "background.png",
+
+		mobile_left: "mobile_left.png",
+		mobile_right: "mobile_right.png",
+		mobile_up: "mobile_up.png",
+		mobile_down: "mobile_down.png"
 	};
 	
 	static texturePath = "./assets/textures/";

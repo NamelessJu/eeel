@@ -5,8 +5,8 @@ class Background extends GameObject {
 	zIndex = -1;
 
 	update() {
-		var widthScale = this.texture.image.width / window.innerWidth * pixelSize;
-		var heightScale = window.innerHeight / window.innerWidth;
+		var heightScale = targetCanvasHeight / this.texture.image.height;
+		var widthScale = Game.canvas.width / Game.canvas.height * heightScale;
 		this.scale = Math.max(widthScale, heightScale);
 	}
 

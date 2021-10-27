@@ -1,4 +1,4 @@
-const targetCanvasWidth = 1920;
+const targetCanvasHeight = 1080;
 var pixelSize = 1;
 
 class Game {
@@ -101,7 +101,7 @@ class Game {
 		
 		Time.updateDeltaTime();
 
-		pixelSize = window.innerWidth / targetCanvasWidth;
+		pixelSize = Game.canvas.height / targetCanvasHeight;
 		
 		Game.update();
 		
@@ -209,6 +209,15 @@ class Game {
 				
 				Game.highscoreText = new UIText("", 40, new Vector(0.5, 0.05), 0);
 				Game.scoreText = new UIText("", 40, new Vector(0.5, 0.11), 0);
+				
+				var mobileDown = new UIImage(new Texture(TextureManager.textures.mobile_down));
+				mobileDown.position = new Vector(100, 0);
+				var mobileUp = new UIImage(new Texture(TextureManager.textures.mobile_up));
+				mobileUp.position = new Vector(100, -100);
+				var mobileLeft = new UIImage(new Texture(TextureManager.textures.mobile_left));
+				mobileLeft.position = new Vector(0, 0);
+				var mobileRight = new UIImage(new Texture(TextureManager.textures.mobile_right));
+				mobileRight.position = new Vector(200, 0);
 				
 				break;
 				

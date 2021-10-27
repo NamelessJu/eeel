@@ -29,7 +29,7 @@ class Fish extends ScrollingObject {
 		super.update();
 		
 		if (Game.state == Game.States.PLAYING) {
-			if (this.position.x < -(targetCanvasWidth / 2) - 200)
+			if (this.position.x < -((Game.canvas.width / pixelSize) / 2) - 200)
 				this.destroy();
 		}
 	}

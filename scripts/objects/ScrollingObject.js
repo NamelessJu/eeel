@@ -7,7 +7,7 @@ class ScrollingObject extends GameObject {
 	constructor(texture = null) {
 		super(texture);
 		
-		this.position.x = (targetCanvasWidth / 2) + 300;
+		this.position.x = ((Game.canvas.width / pixelSize) / 2) + 300;
 	}
 	
 	update() {
